@@ -47,15 +47,19 @@ Widget {
 
     function doSave()
     {
-        return if ins_sel.selected_val.nil?
+        return if ins_sel.value_sel.nil?
         part = root.get_view_pos(:part)
         $remote.action("/bank/save_to_slot", part, ins_sel.selected_val.to_i)
+		bank.doBank
+		$remote.action("/bank/rescan")  ## Test
     }
 
     function doInsSelect()
     {
         doLoad if self.mode == :read
-        doSave if self.mode == :write
+         if (self.mode == :write)
+		 	doSave
+      	end
     }
 
     Widget {
@@ -127,6 +131,7 @@ Widget {
                     children[1].value = true
                 end
                 bank_type.clear
+				bank.doBank # test update preset column
                 children[0].damage_self
                 children[1].damage_self
             }
