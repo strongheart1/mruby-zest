@@ -12,6 +12,6 @@ Group {
         ToggleButton {extern: box.extern + "Pfixedfreq" }
         Knob { extern: box.extern + "PfixedfreqET" }
         Selector { extern: box.extern + "PDetuneType" }
-        NumEntry { extern: box.extern + "PCoarseDetune" }
+        NumEntry { extern: box.extern + "coarsedetune" }
     }
 }
