@@ -30,7 +30,7 @@ Widget {
     {
         t = 0.0;
         env.xpoints.each_with_index do |pt, idx|
-            next if idx > env.points
+            next if idx >= env.points
             t += pt
         end
 
